@@ -1,6 +1,6 @@
 {
     "baseUrl":"https://notes-serverless-app.com",
-    "defaultCommandTimeout":30000,
+    "defaultCommandTimeout":5000,
     "experimentalSessionSupport": true,
     "chromeWebSecurity": false,
     "env": {

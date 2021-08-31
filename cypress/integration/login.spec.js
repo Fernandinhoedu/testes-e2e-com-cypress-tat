@@ -6,7 +6,7 @@ it('successfully logs in', () => {
     Cypress.env('USER_PASSWORD'),
     { cacheSession: false }
   )
-  cy.wait(10000)
+  //cy.wait(10000)
   cy.wait('@getNotes')
 })
 
