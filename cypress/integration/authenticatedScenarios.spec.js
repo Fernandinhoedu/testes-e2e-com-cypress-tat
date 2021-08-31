@@ -9,18 +9,18 @@ describe('Scenarios where authentication is a pre-requirement', () => {
     const noteDescription = faker.lorem.words(4)
 
     cy.createNote(noteDescription)
-    cy.wait(2000)
+   // cy.wait(2000)
     cy.wait('@getNotes')
 
     const updatedNoteDescription = faker.lorem.words(4)
     const attachFile = true
 
     cy.editNote(noteDescription, updatedNoteDescription, attachFile)
-    cy.wait(2000)
+   //cy.wait(2000)
     cy.wait('@getNotes')
 
     cy.deleteNote(updatedNoteDescription)
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.wait('@getNotes')
   })
 
@@ -29,7 +29,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
 
     cy.fillSettingsFormAndSubmit()
 
-    cy.wait(5000)
+    cy.wait(2000)
     cy.wait('@getNotes')
     cy.wait('@paymentRequest').then(response => {
       expect(response.state).to.equal('Complete')
@@ -38,7 +38,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
 
   it('logs out', () => {
     cy.visit('/')
-    cy.wait(5000)
+    cy.wait(2000)
     cy.wait('@getNotes')
 
     if (Cypress.config('viewportWidth') < Cypress.env('viewportWidthBreakpoint')) {
@@ -46,7 +46,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
         .should('be.visible')
         .click()
     }
-    
+
     /* ==== Generated with Cypress Studio ==== */
     cy.get('.nav > :nth-child(2) > a').click()
     cy.get('#email').should('be.visible')
